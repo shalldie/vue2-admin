@@ -2,6 +2,11 @@
     <div class="container">
         <div>
             <h2 class="subtitle">
+                <span>please see:</span>
+                <a href="http://localhost:3000/?name=%250a">http://localhost:3000/?name=%250a</a>
+            </h2>
+            <br><br><br>
+            <h2 class="subtitle">
                 serverQuery : {{ serverQuery }}
             </h2>
             <h2 class="subtitle">
