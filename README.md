@@ -1,22 +1,36 @@
-# nuxt-query-server-client
+# jianjian-admin
 
-> My sublime Nuxt.js project
+## 依赖环境
 
-## Build Setup
+Node.js`V16`
 
-``` bash
-# install dependencies
-$ npm run install
+## 开发
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+```bash
+# 1. 本地自定义配置
+cp .env .env.local
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+# 2. 安装依赖
+npm ci
 
-# generate static project
-$ npm run generate
+# 3. 启动 dev server
+npm run dev
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## 参考
+
+### vue-cli
+
+https://cli.vuejs.org/zh/guide/
+
+### element-ui
+
+https://element.eleme.cn/#/zh-CN/component/quickstart
+
+### vue-element-admin 在线文档
+
+https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/
+
+### vue-element-admin 在线 demo
+
+https://panjiachen.gitee.io/vue-element-admin/#/dashboard

@@ -1,17 +1,45 @@
 {
-  "name": "nuxt-query-server-client",
+  "name": "jianjian-admin",
   "version": "1.0.0",
-  "description": "My sublime Nuxt.js project",
-  "author": "shalldie",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint --no-fix",
+    "fix": "vue-cli-service lint"
+  },
+  "gitHooks": {
+    "pre-commit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^3.0.0"
+    "axios": "^1.3.3",
+    "core-js": "^3.8.3",
+    "element-ui": "^2.15.13",
+    "js-cookie": "^3.0.1",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "screenfull": "^6.0.2",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "mockjs": "^1.1.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.58.3",
+    "sass-loader": "^12.0.0",
+    "vue-template-compiler": "^2.6.14"
+  }
 }

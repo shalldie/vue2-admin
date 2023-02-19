@@ -1,0 +1,46 @@
+// 全局的 mixin
+
+@mixin flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin flex-column {
+    @include flex;
+    flex-direction: column;
+}
+
+@mixin flex-item($num: 1) {
+    flex: $num;
+}
+
+@mixin before-middle {
+    &::before {
+        content: '';
+        height: 100%;
+        @include inline-middle;
+    }
+}
+
+@mixin inline-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@mixin text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin shadow($color: rgba(0, 0, 0, 0.2)) {
+    box-shadow: 3px 3px 6px $color;
+}
+
+@mixin hover-shadow($color: rgba(0, 0, 0, 0.2)) {
+    transition: $TRANSITION;
+    &:hover {
+        @include shadow($color);
+    }
+}
