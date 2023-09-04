@@ -1,6 +1,7 @@
 import 'normalize.css';
 import 'element-ui/lib/theme-chalk/index.css';
 import './styles/main.scss';
+import './plugins/EasyTable';
 
 import Vue from 'vue';
 import App from './App.vue';
