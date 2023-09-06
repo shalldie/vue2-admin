@@ -24,6 +24,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     },
     {
+        path: '/editor',
+        name: 'editor',
+        meta: { title: 'editor' },
+        component: () => import(/* webpackChunkName: "about" */ '../views/EditorView.vue')
+    },
+    {
         path: '/redirect',
         component: () => import(/* webpackChunkName: "redirect" */ '../views/Redirect.vue')
     }

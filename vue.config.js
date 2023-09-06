@@ -1,9 +1,17 @@
 const { defineConfig } = require('@vue/cli-service');
+const MonacoEditorPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = defineConfig({
     publicPath: process.env.BASE_URL,
     transpileDependencies: true,
     lintOnSave: false,
+    configureWebpack: {
+        plugins: [
+            new MonacoEditorPlugin({
+                languages: ['json']
+            })
+        ]
+    },
     devServer: {
         setupMiddlewares: (middlewares, devServer) => {
             if (!devServer) {
