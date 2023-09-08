@@ -1,3 +1,5 @@
+import './DragResize.less';
+
 export class DragResize {
     enable = false;
 
@@ -40,6 +42,7 @@ export class DragResize {
         };
         console.log(this.point);
         this.enable = true;
+        document.body.classList.add('col-resize');
     }
 
     /**
@@ -62,6 +65,7 @@ export class DragResize {
 
     onMouseUp = () => {
         this.enable = false;
+        document.body.classList.remove('col-resize');
     };
 
     dispose() {
