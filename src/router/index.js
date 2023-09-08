@@ -30,6 +30,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/EditorView.vue')
     },
     {
+        path: '/drag',
+        name: 'drag',
+        meta: { title: 'drag' },
+        component: () => import(/* webpackChunkName: "drag" */ '../views/DragView.vue')
+    },
+    {
         path: '/redirect',
         component: () => import(/* webpackChunkName: "redirect" */ '../views/Redirect.vue')
     }
