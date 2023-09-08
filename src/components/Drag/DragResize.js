@@ -64,5 +64,8 @@ export class DragResize {
         this.enable = false;
     };
 
-    dispose() {}
+    dispose() {
+        document.body.removeEventListener('mousemove', this.onMouseMove);
+        document.body.removeEventListener('mouseup', this.onMouseUp);
+    }
 }
