@@ -87,7 +87,15 @@ export default {
         display: flex;
         border: 1px solid #ddd;
         .left-panel {
-            border-right: 1px dashed #ddd;
+            ::v-deep {
+                .ctl-bar {
+                    // border-right: 1px dashed #ddd;
+                    background: #ddd;
+                    &:hover {
+                        background: #2ad;
+                    }
+                }
+            }
         }
 
         .right-panel {
