@@ -23,6 +23,7 @@
                 <el-menu-item index="/about">about</el-menu-item>
                 <el-menu-item index="/editor">editor</el-menu-item>
                 <el-menu-item index="/drag">drag</el-menu-item>
+                <el-menu-item index="/curl">curl</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
                 <el-menu-item index="2-3">选项3</el-menu-item>

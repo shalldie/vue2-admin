@@ -24,6 +24,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     },
     {
+        path: '/curl',
+        name: 'curl',
+        meta: { title: 'curl' },
+        component: () => import(/* webpackChunkName: "curl" */ '../views/CurlView.vue')
+    },
+    {
         path: '/editor',
         name: 'editor',
         meta: { title: 'editor' },
