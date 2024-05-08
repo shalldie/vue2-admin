@@ -1,5 +1,6 @@
 <template>
     <el-container class="app-layout">
+        <WaterMark />
         <el-aside :class="{ open: sidebaropen }">
             <SidebarVue />
         </el-aside>
@@ -20,11 +21,13 @@
 <script>
 import NavbarVue from './Navbar.vue';
 import SidebarVue from './Sidebar.vue';
+import WaterMark from '@/components/WaterMark.vue';
 
 export default {
     components: {
         SidebarVue,
-        NavbarVue
+        NavbarVue,
+        WaterMark
     },
     computed: {
         sidebaropen() {
