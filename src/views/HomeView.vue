@@ -7,6 +7,7 @@
             <IconUser style="width: 80px; height: 80px; color: #2ad" />
         </div>
         <br />
+        <LikeHeart v-model="liked" />
         <br />
         <Markdown>
             <h4>工具使用说明</h4>
@@ -33,12 +34,19 @@ import HelloDialog from '@/components/HelloDialog.vue';
 import { dialogAPI } from '@/common/dialogAPI';
 import IconUser from '@/components/icons/IconUser.vue';
 import Markdown from '@/components/Markdown.vue';
+import { LikeHeart } from '@/components/LikeHeart';
 
 export default {
     name: 'HomeView',
+    data() {
+        return {
+            liked: false
+        };
+    },
     components: {
         IconUser,
-        Markdown
+        Markdown,
+        LikeHeart
         // HelloWorld
     },
     async mounted() {
