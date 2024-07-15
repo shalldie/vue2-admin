@@ -7,6 +7,8 @@
             <IconUser style="width: 80px; height: 80px; color: #2ad" />
         </div>
         <br />
+        <LikeButton :count="233" v-model="liked" />
+        <br />
         <LikeHeart v-model="liked" />
         <br />
         <Markdown>
@@ -36,6 +38,8 @@ import IconUser from '@/components/icons/IconUser.vue';
 import Markdown from '@/components/Markdown.vue';
 import { LikeHeart } from '@/components/LikeHeart';
 
+import { LikeButton } from '@/components/LikeButton';
+
 export default {
     name: 'HomeView',
     data() {
@@ -46,7 +50,8 @@ export default {
     components: {
         IconUser,
         Markdown,
-        LikeHeart
+        LikeHeart,
+        LikeButton
         // HelloWorld
     },
     async mounted() {
