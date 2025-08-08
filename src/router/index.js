@@ -49,7 +49,7 @@ const routes = [
 
 const router = new VueRouter({
     mode: 'history',
-    base: process.env.BASE_URL,
+    base: import.meta.env.BASE_URL,
     scrollBehavior: () => ({ y: 0 }), // 每次跳转，滚动条回到最上方
     routes
 });
