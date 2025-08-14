@@ -126,11 +126,16 @@ export default {
             cursor: pointer;
             transition: var(--transition-primary);
 
-            &::before {
-                transition: var(--transition-primary);
-            }
+            // &::before {
+            //     transition: var(--transition-primary);
+            // }
 
-            &:hover::before {
+            // &:hover::before {
+            //     transform: rotate(180deg) scale(1.2);
+            // }
+
+            &:hover {
+                font-weight: 700;
                 transform: rotate(180deg) scale(1.2);
             }
         }
@@ -187,6 +192,7 @@ export default {
             margin-top: auto;
             border: 2px solid rgb(217, 217, 217);
             border-radius: 30px;
+            transition: var(--transition-primary);
 
             &:hover,
             &:focus-within {
