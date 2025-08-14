@@ -42,6 +42,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "drag" */ '../views/DragView.vue')
     },
     {
+        path: '/chat',
+        name: 'chat',
+        meta: { title: 'chat' },
+        component: () => import(/* webpackChunkName: "chat" */ '../views/ChatView.vue')
+    },
+    {
         path: '/redirect',
         component: () => import(/* webpackChunkName: "redirect" */ '../views/Redirect.vue')
     }
