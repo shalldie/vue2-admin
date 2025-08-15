@@ -179,6 +179,7 @@ export default {
                 line-height: 22px;
                 padding: 5px 16px;
                 color: #000;
+                word-break: break-all; /* 强制所有字符（包括英文）断行 */
             }
         }
 
