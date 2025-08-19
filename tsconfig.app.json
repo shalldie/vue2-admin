@@ -8,8 +8,6 @@
 
         "baseUrl": ".",
         "paths": {
-            "~/*": ["src/*"],
-            "~anno/*": ["src/modules/annotate/*"],
             "@/*": ["./src/*"]
         },
         "noImplicitAny": false,
@@ -20,7 +18,7 @@
         "allowJs": true
     },
     "vueCompilerOptions": {
-        "target": 2.7
+        "target": "auto"
         // "target": 2, // For Vue version <= 2.6.14
     }
 }

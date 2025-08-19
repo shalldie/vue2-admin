@@ -36,6 +36,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/EditorView.vue')
     },
     {
+        path: '/rich-editor',
+        name: 'rich-editor',
+        meta: { title: 'rich-editor' },
+        component: () => import(/* webpackChunkName: "rich-editor" */ '../views/RichEditorView.vue')
+    },
+    {
         path: '/drag',
         name: 'drag',
         meta: { title: 'drag' },
