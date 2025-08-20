@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: 'AboutView',
+    name: 'about',
     components: {},
     data() {
         return {

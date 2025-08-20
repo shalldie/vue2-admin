@@ -16,6 +16,7 @@ import curl2Json from '@bany/curl-to-json';
 import { Editor } from '@/components/Editor';
 
 export default {
+    name: 'curl',
     components: {
         Editor
     },

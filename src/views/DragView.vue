@@ -21,6 +21,7 @@
 import { DragX } from '@/components/Drag';
 
 export default {
+    name: 'drag',
     components: {
         DragX
     },

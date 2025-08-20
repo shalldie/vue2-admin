@@ -8,6 +8,7 @@
 import { AIChat } from '@/components/AIChat';
 
 export default {
+    name: 'chat',
     components: {
         AIChat
     }

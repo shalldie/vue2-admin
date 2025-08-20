@@ -41,7 +41,7 @@ import { LikeHeart } from '@/components/LikeHeart';
 import { LikeButton } from '@/components/LikeButton';
 
 export default {
-    name: 'HomeView',
+    name: 'home',
     data() {
         return {
             liked: false

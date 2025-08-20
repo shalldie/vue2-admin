@@ -11,7 +11,7 @@
             <el-main>
                 <!-- https://panjiachen.github.io/vue-element-admin-site/guide/essentials/tags-view.html -->
                 <keep-alive :include="cachedViews">
-                    <router-view :key="key" />
+                    <router-view :key="$route.path" />
                 </keep-alive>
             </el-main>
         </el-container>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { tag } from '@/components/TagsView/pro';
 import NavbarVue from './Navbar.vue';
 import SidebarVue from './Sidebar.vue';
 import WaterMark from '@/components/WaterMark.vue';
@@ -34,14 +35,15 @@ export default {
             return this.$store.state.app.sidebar.open;
         },
         cachedViews() {
-            return this.$store.state.tagsView.cachedViews;
-        },
-        key() {
-            return this.$route.path;
+            // return this.$store.state.tagsView.cachedViews;
+            return tag.state.pages.map(n => n.name);
         }
     },
     mounted() {
         this.$store.dispatch('app/fetchUserInfo');
+        // console.log(this.cachedViews);
+        // window.ele = this;
+        // window.tag = tag;
     }
 };
 </script>

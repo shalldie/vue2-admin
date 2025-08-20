@@ -21,6 +21,7 @@
             <el-menu-item-group>
                 <template slot="title">分组一</template>
                 <el-menu-item index="/about">about</el-menu-item>
+                <el-menu-item index="/list">list</el-menu-item>
                 <el-menu-item index="/editor">editor</el-menu-item>
                 <el-menu-item index="/rich-editor">rich editor</el-menu-item>
                 <el-menu-item index="/drag">drag</el-menu-item>

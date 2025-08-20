@@ -7,7 +7,8 @@
                 :class="sidebar.open ? 'el-icon-s-fold' : 'el-icon-s-unfold'"
             ></i>
         </el-tooltip>
-        <TagsView />
+        <!-- <TagsView /> -->
+        <TagsViewPro />
 
         <div class="right-bar">
             <!-- 全屏 -->
@@ -37,11 +38,13 @@
 <script>
 import Screenfull from '@/components/Screenfull/index.vue';
 import TagsView from '@/components/TagsView/index.vue';
+import { TagsViewPro } from '@/components/TagsView/pro';
 
 export default {
     components: {
         Screenfull,
-        TagsView
+        TagsView,
+        TagsViewPro
     },
     computed: {
         sidebar() {

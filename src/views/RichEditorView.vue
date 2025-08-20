@@ -8,6 +8,7 @@
 import RichEditor from '@/components/RichEditor.vue';
 
 export default {
+    name: 'rich-editor',
     components: {
         RichEditor
     },

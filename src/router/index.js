@@ -4,6 +4,7 @@ import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 
 import HomeView from '../views/HomeView.vue';
+import NavigationTypePlugin from './navigation-type-plugin';
 
 Vue.use(VueRouter);
 
@@ -11,13 +12,19 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        meta: { title: '首页' },
+        meta: {
+            title: '首页',
+            name: 'home'
+        },
         component: HomeView
     },
     {
         path: '/about',
         name: 'about',
-        meta: { title: '关于' },
+        meta: {
+            title: '关于',
+            name: 'about'
+        },
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -26,32 +33,44 @@ const routes = [
     {
         path: '/curl',
         name: 'curl',
-        meta: { title: 'curl' },
+        meta: { title: 'curl', name: 'curl' },
         component: () => import(/* webpackChunkName: "curl" */ '../views/CurlView.vue')
     },
     {
         path: '/editor',
         name: 'editor',
-        meta: { title: 'editor' },
+        meta: { title: 'editor', name: 'editor' },
         component: () => import(/* webpackChunkName: "about" */ '../views/EditorView.vue')
     },
     {
         path: '/rich-editor',
         name: 'rich-editor',
-        meta: { title: 'rich-editor' },
+        meta: { title: 'rich-editor', name: 'rich-editor' },
         component: () => import(/* webpackChunkName: "rich-editor" */ '../views/RichEditorView.vue')
     },
     {
         path: '/drag',
         name: 'drag',
-        meta: { title: 'drag' },
+        meta: { title: 'drag', name: 'drag' },
         component: () => import(/* webpackChunkName: "drag" */ '../views/DragView.vue')
     },
     {
         path: '/chat',
         name: 'chat',
-        meta: { title: 'chat' },
+        meta: { title: 'chat', name: 'chat' },
         component: () => import(/* webpackChunkName: "chat" */ '../views/ChatView.vue')
+    },
+    {
+        path: '/list',
+        name: 'list',
+        meta: { title: 'list', name: 'list' },
+        component: () => import(/* webpackChunkName: "list" */ '../views/list/ListView.vue')
+    },
+    {
+        path: '/list/detail/:id',
+        name: 'list-detail',
+        meta: { title: 'list-detail', name: 'list-detail' },
+        component: () => import(/* webpackChunkName: "list-item" */ '../views/list/ListDetailView.vue')
     },
     {
         path: '/redirect',
@@ -74,5 +93,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((_to, _from) => {
     NProgress.done();
 });
+
+NavigationTypePlugin(router);
 
 export default router;
