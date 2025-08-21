@@ -11,6 +11,9 @@ importers:
       '@bany/curl-to-json':
         specifier: ^1.2.8
         version: 1.2.8
+      '@tinymce/tinymce-vue':
+        specifier: ^3.2.8
+        version: 3.2.8(vue@2.7.16)
       '@wangeditor/editor':
         specifier: ^5.1.23
         version: 5.1.23
@@ -41,6 +44,9 @@ importers:
       screenfull:
         specifier: ^6.0.2
         version: 6.0.2
+      tinymce:
+        specifier: ^5.10.9
+        version: 5.10.9
       vue:
         specifier: 2.7.16
         version: 2.7.16
@@ -384,6 +390,11 @@ packages:
     resolution: {integrity: sha512-CvUo2ixeIQGtF6WvuB87XWqPQkoFAFqW+HUo/WzHwuHDvIwZCtjdWXoYCcr06iKGydiqTclC4jU/TNObC/xKZg==}
     cpu: [x64]
     os: [win32]
+
+  '@tinymce/tinymce-vue@3.2.8':
+    resolution: {integrity: sha512-jEz+NZ0g+FZFz273OEUWz9QkwPMyjc5AJYyxOgu51O1Y5UaJ/6IUddXTX6A20mwCleEv5ebwNYdalviafx4fnA==}
+    peerDependencies:
+      vue: ^2.4.3
 
   '@transloadit/prettier-bytes@0.0.7':
     resolution: {integrity: sha512-VeJbUb0wEKbcwaSlj5n+LscBl9IPgLPkHVGBkh00cztv6X4L/TJXK58LzFuBKX7/GAfiGhIwH67YTLTlzvIzBA==}
@@ -1042,6 +1053,9 @@ packages:
   tiny-warning@1.0.3:
     resolution: {integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==}
 
+  tinymce@5.10.9:
+    resolution: {integrity: sha512-5bkrors87X9LhYX2xq8GgPHrIgJYHl87YNs+kBcjQ5I3CiUgzo/vFcGvT3MZQ9QHsEeYMhYO6a5CLGGffR8hMg==}
+
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -1301,6 +1315,10 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.46.2':
     optional: true
+
+  '@tinymce/tinymce-vue@3.2.8(vue@2.7.16)':
+    dependencies:
+      vue: 2.7.16
 
   '@transloadit/prettier-bytes@0.0.7': {}
 
@@ -2014,6 +2032,8 @@ snapshots:
   throttle-debounce@1.1.0: {}
 
   tiny-warning@1.0.3: {}
+
+  tinymce@5.10.9: {}
 
   to-regex-range@5.0.1:
     dependencies:

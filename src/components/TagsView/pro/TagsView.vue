@@ -76,5 +76,9 @@ export default {
 .tags-view {
     display: flex;
     gap: 10px;
+
+    .el-tag {
+        cursor: pointer;
+    }
 }
 </style>

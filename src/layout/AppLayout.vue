@@ -42,7 +42,7 @@ export default {
     mounted() {
         this.$store.dispatch('app/fetchUserInfo');
         // console.log(this.cachedViews);
-        // window.ele = this;
+        window.ele = this;
         // window.tag = tag;
     }
 };

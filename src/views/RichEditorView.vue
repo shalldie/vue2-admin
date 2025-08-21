@@ -1,16 +1,19 @@
 <template>
     <div class="page-rich-editor">
-        <RichEditor v-model="html" />
+        <!-- <RichEditor v-model="html" /> -->
+        <TinymceEditor />
     </div>
 </template>
 
 <script>
 import RichEditor from '@/components/RichEditor.vue';
+import TinymceEditor from '@/components/TinymceEditor/TinymceEditor.vue';
 
 export default {
     name: 'rich-editor',
     components: {
-        RichEditor
+        RichEditor,
+        TinymceEditor
     },
     data() {
         return {
@@ -18,6 +21,7 @@ export default {
         };
     },
     mounted() {
+        window.ele = this;
         // 模拟 ajax 请求，异步渲染编辑器
         setTimeout(() => {
             // this.html = '<p>模拟 Ajax 异步设置内容 HTML</p>';
