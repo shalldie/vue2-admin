@@ -1,19 +1,22 @@
 <template>
     <div class="page-rich-editor">
         <!-- <RichEditor v-model="html" /> -->
-        <TinymceEditor />
+        <!-- <TinymceEditor /> -->
+        <TinyEditor v-model="html" />
     </div>
 </template>
 
 <script>
-import RichEditor from '@/components/RichEditor.vue';
-import TinymceEditor from '@/components/TinymceEditor/TinymceEditor.vue';
+// import RichEditor from '@/components/RichEditor.vue';
+import { TinyEditor } from '@/components/TinyEditor';
+// import TinymceEditor from '@/components/TinymceEditor/TinymceEditor.vue';
 
 export default {
     name: 'rich-editor',
     components: {
-        RichEditor,
-        TinymceEditor
+        // RichEditor,
+        // TinymceEditor,
+        TinyEditor
     },
     data() {
         return {
