@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
     name: 'about',
     components: {},
@@ -61,7 +61,18 @@ export default {
                 { field: 'name', key: 'a', title: 'Name', width: 100, edit: true },
                 { field: 'date', key: 'b', title: 'Tel', width: 200, edit: true },
                 { field: 'hobby', key: 'c', title: 'Hobby', width: 300, edit: true },
-                { field: 'address', key: 'd', title: 'Address', width: 300, edit: true }
+                { field: 'address', key: 'd', title: 'Address', width: 300, edit: true },
+                {
+                    field: 'ctl',
+                    key: 'ctl',
+                    title: '控制',
+                    width: 200,
+                    align: 'left',
+                    renderBodyCell: ({ row, column, rowIndex }, h) => {
+                        const text = row[column.field];
+                        return <el-input style="width:100%" value={text}></el-input>;
+                    }
+                }
             ],
             tableData: [
                 {
