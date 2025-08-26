@@ -1,6 +1,23 @@
 <template>
     <div class="route-tabs">
-        <el-tag
+        <el-tabs
+            :value="curPage?.name"
+            :closable="rt.state.pages.length > 1"
+            @tab-remove="onTabRemove"
+            @tab-click="onTabClick"
+        >
+            <el-tab-pane
+                v-for="page in rt.state.pages"
+                :key="page.name"
+                :label="page.title"
+                :name="page.name"
+            ></el-tab-pane>
+
+            <!-- <el-tab-pane label="配置管理" name="second"></el-tab-pane>
+            <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+            <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane> -->
+        </el-tabs>
+        <!-- <el-tag
             v-for="(page, index) in rt.state.pages"
             :key="index"
             :effect="rt.state.index === index ? 'dark' : 'plain'"
@@ -10,7 +27,7 @@
             @click.prevent="onNavigate(index)"
         >
             {{ page.title }}
-        </el-tag>
+        </el-tag> -->
     </div>
 </template>
 
@@ -19,7 +36,13 @@ import { sleep } from '@/common/utils';
 import { RouteItem, rt } from './rt.svc';
 
 export default {
+    data() {
+        return {};
+    },
     computed: {
+        curPage() {
+            return rt.state.pages[rt.state.index];
+        },
         rt() {
             return rt;
         }
@@ -49,9 +72,13 @@ export default {
         }
     },
     methods: {
-        closePage(index) {
+        onTabRemove(name) {
+            const index = rt.state.pages.findIndex(n => n.name === name);
             rt.removePage(index);
             this.onNavigate(rt.state.index);
+        },
+        onTabClick(tab) {
+            this.onNavigate(tab.index);
         },
         onNavigate(index) {
             const target = rt.state.pages[index];
@@ -65,10 +92,19 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .route-tabs {
     display: flex;
     gap: 10px;
+
+    .el-tabs {
+        margin-left: 20px;
+        ::v-deep {
+            .el-tabs__header {
+                margin: 0;
+            }
+        }
+    }
 
     .el-tag {
         cursor: pointer;

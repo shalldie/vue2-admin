@@ -51,39 +51,62 @@ export default {
         }
     },
     mounted() {
-        tinymce
-            .init({
-                target: this.$refs.textarea,
-                ui_mode: 'split',
-                content_css: '/tinymce/skins/ui/oxide/content.css',
-                language_url: '/tinymce/langs/zh_CN.js',
-                language: 'zh_CN',
-                plugins:
-                    'lists link anchor code wordcount image table visualchars visualblocks searchreplace preview pagebreak nonbreaking media insertdatetime fullscreen directionality autosave autolink advlist',
-                toolbar: [
-                    'undo redo removeformat | bold italic underline strikethrough superscript subscript backcolor forecolor | numlist bullist | blocks | searchreplace fullscreen',
-                    'fontfamily fontsize fontsizeselect fontsizeinput | alignleft aligncenter alignright alignjustify lineheight outdent indent | link unlink image media | preview code'
-                ],
-                font_size_formats: '9px 10px 11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 36px 42px 48px 72px',
-                font_size_input_default_unit: 'px',
-                images_upload_handler: (blobInfo, progress) => {
-                    return this.uploadImage(blobInfo, progress);
-                },
-                height: 500,
-                promotion: false
-            })
-            .then(([editor]) => {
-                this.editor = editor;
-                this.setValue(this.value);
-                editor.on('change keyup undo redo', () => {
-                    this.$emit('change', editor.getContent());
-                });
-            });
+        this.initEditor();
     },
     beforeDestroy() {
-        this.editor?.destroy();
+        this.destroyEditor();
+    },
+    activated() {
+        // 当组件从缓存中激活时重新初始化编辑器
+        this.$nextTick(() => {
+            this.initEditor();
+        });
+    },
+    deactivated() {
+        // 当组件被缓存时销毁编辑器
+        this.destroyEditor();
     },
     methods: {
+        initEditor() {
+            if (this.editor) {
+                return;
+            }
+            tinymce
+                .init({
+                    license_key: 'gpl',
+                    target: this.$refs.textarea,
+                    ui_mode: 'split',
+                    content_css: '/tinymce/skins/ui/oxide/content.css',
+                    language_url: '/tinymce/langs/zh_CN.js',
+                    language: 'zh_CN',
+                    plugins:
+                        'lists link anchor code wordcount image table visualchars visualblocks searchreplace preview pagebreak nonbreaking media insertdatetime fullscreen directionality autosave autolink advlist',
+                    toolbar: [
+                        'undo redo removeformat | bold italic underline strikethrough superscript subscript backcolor forecolor | numlist bullist | blocks | searchreplace fullscreen',
+                        'fontfamily fontsize fontsizeselect fontsizeinput | alignleft aligncenter alignright alignjustify lineheight outdent indent | link unlink image media | preview code'
+                    ],
+                    font_size_formats: '9px 10px 11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 36px 42px 48px 72px',
+                    font_size_input_default_unit: 'px',
+                    images_upload_handler: (blobInfo, progress) => {
+                        return this.uploadImage(blobInfo, progress);
+                    },
+                    height: 500,
+                    promotion: false
+                })
+                .then(([editor]) => {
+                    this.editor = editor;
+                    this.setValue(this.value);
+                    editor.on('change keyup undo redo', () => {
+                        this.$emit('change', editor.getContent());
+                    });
+                });
+        },
+        destroyEditor() {
+            if (this.editor) {
+                this.editor.destroy();
+                this.editor = null;
+            }
+        },
         setValue(val) {
             const oldValue = this.editor?.getContent();
             if (typeof val === 'string' && val !== oldValue) {
