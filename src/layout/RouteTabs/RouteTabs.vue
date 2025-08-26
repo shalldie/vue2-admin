@@ -1,5 +1,5 @@
 <template>
-    <div class="tags-view">
+    <div class="route-tabs">
         <el-tag
             v-for="(page, index) in tag.state.pages"
             :key="index"
@@ -16,37 +16,33 @@
 
 <script>
 import { sleep } from '@/common/utils';
-import { tag } from './tags.svc';
+import { RouteItem, rt } from './rt.svc';
 
 export default {
     computed: {
         tag() {
-            return tag;
+            return rt;
         }
     },
     watch: {
         $route: {
             async handler() {
                 await sleep(0);
-                const isReplace = this.$router.getNavigationType?.() === 'replace';
+
+                const isReplace = this.$router.isReplace?.();
 
                 const { name, title } = this.$route.meta || {};
+                const routeItem = new RouteItem({
+                    name,
+                    title,
+                    path: this.$route.path,
+                    fullPath: this.$route.fullPath
+                });
 
                 if (isReplace) {
-                    tag.replacePage(
-                        {
-                            name,
-                            title,
-                            path: this.$route.path
-                        },
-                        tag.state.index
-                    );
+                    rt.replacePage(routeItem, rt.state.index);
                 } else {
-                    tag.addPage({
-                        name,
-                        title,
-                        path: this.$route.path
-                    });
+                    rt.addPage(routeItem);
                 }
             },
             immediate: true
@@ -54,26 +50,23 @@ export default {
     },
     methods: {
         closePage(index) {
-            tag.removePage(index);
-            this.onNavigate(tag.state.index);
+            rt.removePage(index);
+            this.onNavigate(rt.state.index);
         },
         onNavigate(index) {
-            // if (tag.state.index === index) {
-            //     return;
-            // }
-            const target = tag.state.pages[index];
+            const target = rt.state.pages[index];
             if (target.path === this.$route.path) {
                 return;
             }
-            tag.state.index = index;
-            this.$router.push(tag.state.pages[index].path);
+            rt.state.index = index;
+            this.$router.push(rt.state.pages[index].fullPath);
         }
     }
 };
 </script>
 
 <style lang="less">
-.tags-view {
+.route-tabs {
     display: flex;
     gap: 10px;
 

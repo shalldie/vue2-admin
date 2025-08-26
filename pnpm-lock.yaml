@@ -51,7 +51,7 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1(lodash@4.17.21)(vue@2.7.16)
       vue-router:
-        specifier: ^3.5.1
+        specifier: ^3.6.5
         version: 3.6.5(vue@2.7.16)
       vuex:
         specifier: ^3.6.2

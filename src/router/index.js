@@ -73,6 +73,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "list-item" */ '../views/list/ListDetailView.vue')
     },
     {
+        path: '/step',
+        name: 'step',
+        meta: { title: 'step 页面', name: 'step' },
+        component: () => import(/* webpackChunkName: "list-item" */ '../views/StepView.vue')
+    },
+    {
         path: '/redirect',
         component: () => import(/* webpackChunkName: "redirect" */ '../views/Redirect.vue')
     }

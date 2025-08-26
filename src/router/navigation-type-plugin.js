@@ -12,8 +12,7 @@ export default function NavigationTypePlugin(router) {
         router._lastNavigationType = 'replace';
         return originalReplace.call(this, location, onResolve, onReject);
     };
-
-    router.getNavigationType = function () {
-        return router._lastNavigationType;
+    router.isReplace = () => {
+        router._lastNavigationType === 'replace';
     };
 }

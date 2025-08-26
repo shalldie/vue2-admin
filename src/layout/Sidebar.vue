@@ -27,6 +27,7 @@
                 <el-menu-item index="/drag">drag</el-menu-item>
                 <el-menu-item index="/curl">curl</el-menu-item>
                 <el-menu-item index="/chat">chat</el-menu-item>
+                <el-menu-item index="/step">step</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
                 <el-menu-item index="2-3">选项3</el-menu-item>

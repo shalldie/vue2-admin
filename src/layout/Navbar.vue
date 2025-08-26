@@ -8,7 +8,8 @@
             ></i>
         </el-tooltip>
         <!-- <TagsView /> -->
-        <TagsViewPro />
+        <!-- <TagsViewPro /> -->
+        <RouteTabs />
 
         <div class="right-bar">
             <!-- 全屏 -->
@@ -37,14 +38,14 @@
 
 <script>
 import Screenfull from '@/components/Screenfull/index.vue';
-import TagsView from '@/components/TagsView/index.vue';
-import { TagsViewPro } from '@/components/TagsView/pro';
+import { RouteTabs } from './RouteTabs';
+// import TagsView from '@/components/TagsView/index.vue';
+// import { TagsViewPro } from '@/components/TagsView/pro';
 
 export default {
     components: {
         Screenfull,
-        TagsView,
-        TagsViewPro
+        RouteTabs
     },
     computed: {
         sidebar() {

@@ -10,7 +10,7 @@
             </el-header>
             <el-main>
                 <!-- https://panjiachen.github.io/vue-element-admin-site/guide/essentials/tags-view.html -->
-                <keep-alive :include="cachedViews">
+                <keep-alive :include="cachedRoutes">
                     <router-view :key="$route.path" />
                 </keep-alive>
             </el-main>
@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import { tag } from '@/components/TagsView/pro';
 import NavbarVue from './Navbar.vue';
 import SidebarVue from './Sidebar.vue';
 import WaterMark from '@/components/WaterMark.vue';
+import { rt } from './RouteTabs';
 
 export default {
     components: {
@@ -34,9 +34,9 @@ export default {
         sidebaropen() {
             return this.$store.state.app.sidebar.open;
         },
-        cachedViews() {
+        cachedRoutes() {
             // return this.$store.state.tagsView.cachedViews;
-            return tag.state.pages.map(n => n.name);
+            return rt.state.pages.map(n => n.name);
         }
     },
     mounted() {
