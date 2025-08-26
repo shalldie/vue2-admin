@@ -1,11 +1,11 @@
 <template>
     <div class="route-tabs">
         <el-tag
-            v-for="(page, index) in tag.state.pages"
+            v-for="(page, index) in rt.state.pages"
             :key="index"
-            :effect="tag.state.index === index ? 'dark' : 'plain'"
+            :effect="rt.state.index === index ? 'dark' : 'plain'"
             disable-transitions
-            :closable="tag.state.pages.length > 1"
+            :closable="rt.state.pages.length > 1"
             @close="closePage(index)"
             @click.prevent="onNavigate(index)"
         >
@@ -20,7 +20,7 @@ import { RouteItem, rt } from './rt.svc';
 
 export default {
     computed: {
-        tag() {
+        rt() {
             return rt;
         }
     },

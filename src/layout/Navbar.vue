@@ -69,7 +69,7 @@ export default {
     padding-right: 16px;
     @include flex;
 
-    .tags-view {
+    .route-tabs {
         align-self: flex-end;
     }
 
