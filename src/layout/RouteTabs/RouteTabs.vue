@@ -1,16 +1,16 @@
 <template>
     <div class="route-tabs">
         <el-tabs
-            :value="curPage?.name"
+            :value="curPage?.path"
             :closable="rt.state.pages.length > 1"
             @tab-remove="onTabRemove"
             @tab-click="onTabClick"
         >
             <el-tab-pane
                 v-for="page in rt.state.pages"
-                :key="page.name"
+                :key="page.path"
                 :label="page.title"
-                :name="page.name"
+                :name="page.path"
             ></el-tab-pane>
 
             <!-- <el-tab-pane label="配置管理" name="second"></el-tab-pane>
@@ -72,8 +72,8 @@ export default {
         }
     },
     methods: {
-        onTabRemove(name) {
-            const index = rt.state.pages.findIndex(n => n.name === name);
+        onTabRemove(path) {
+            const index = rt.state.pages.findIndex(n => n.path === path);
             rt.removePage(index);
             this.onNavigate(rt.state.index);
         },
