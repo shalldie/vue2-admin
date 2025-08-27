@@ -67,6 +67,7 @@ export default {
                 } else {
                     rt.addPage(routeItem);
                 }
+                rt.state.index = rt.state.pages.findIndex(n => n.path === routeItem.path);
             },
             immediate: true
         }
