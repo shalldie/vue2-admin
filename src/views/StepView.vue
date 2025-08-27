@@ -33,18 +33,27 @@ export default {
     name: 'step',
     data() {
         return {
+            id: this.$route.query.id,
             step: 0
         };
     },
     methods: {
         async fetchInfo() {
             await sleep(200);
-            const id = Math.random();
-            await this.$router.replace({
-                query: { id }
-            });
+            this.id = Math.random();
+            await this.syncQuery();
             this.step++;
+        },
+        async syncQuery() {
+            if (this.$route.query.id !== this.id) {
+                await this.$router.replace({
+                    query: { id: this.id }
+                });
+            }
         }
+    },
+    activated() {
+        this.syncQuery();
     }
 };
 </script>
